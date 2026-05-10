@@ -10,3 +10,4 @@ tensorflow
 ydata-profiling
 setuptools
 ipykernel
+nltk

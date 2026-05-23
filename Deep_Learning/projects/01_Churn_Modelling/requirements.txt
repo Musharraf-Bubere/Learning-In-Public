@@ -6,3 +6,4 @@ tensorboard
 matplotlib
 streamlit
 setuptools==69.5.1
+scikeras

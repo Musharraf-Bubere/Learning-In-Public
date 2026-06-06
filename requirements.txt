@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+mlxtend
+bs4
+lxml
+tensorflow
+ydata-profiling
+setuptools
+ipykernel
+nltk

@@ -125,11 +125,14 @@ Learning is better when we grow together.
 
 # 📬 Connect With Me
 
-Feel free to connect with me and follow my learning journey.
+I'm always open to connecting with fellow learners, developers, and professionals in AI, Machine Learning, and Data Science.
 
-- 💼 LinkedIn: **Your LinkedIn URL**
-- 🌐 Portfolio: **Your Portfolio (if available)**
-- 📧 Email: **Your Email**
+- 💼 LinkedIn: https://linkedin.com/in/musharraf-bubere007
+- 📧 Email: musharrafbubere007@gmail.com
+
+If you have suggestions, feedback, or just want to discuss AI, ML, Data Science, or Generative AI, feel free to reach out!
+
+Let's learn, build, and grow together. 🚀
 
 ---
 

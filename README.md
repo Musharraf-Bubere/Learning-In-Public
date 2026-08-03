@@ -1,37 +1,68 @@
-# 🚀 Learning in Public
+<p align="center">
+  <img src="assets/banner.png" alt="Learning in Public Banner" width="100%">
+</p>
 
-> **Documenting my journey to becoming an AI Engineer — one concept, one notebook, and one project at a time.**
+<h1 align="center">🚀 Learning in Public</h1>
 
-Welcome! 👋
+<p align="center">
+  <b>My Journey to Becoming an AI Engineer</b>
+</p>
 
-I'm **Musharraf Bubere**, and this repository is my digital learning journal where I document everything I learn in **Artificial Intelligence, Machine Learning, Deep Learning, Data Science, and Generative AI**.
+<p align="center">
+Documenting everything I learn about Artificial Intelligence, Machine Learning,
+Deep Learning, Data Science, and Generative AI.
+</p>
 
-Instead of learning privately, I believe in **Learning in Public**—sharing notes, code, experiments, and projects so that others can learn alongside me while I continuously improve my own understanding.
+<p align="center">
+Learn • Build • Share • Repeat
+</p>
 
 ---
 
-# 🎯 Repository Goal
+## 👋 About
 
-The goal of this repository is to:
+Hi, I'm **Musharraf Bubere**.
 
-- 📚 Build a complete knowledge base for AI & Data Science
-- 🧠 Strengthen concepts through practical implementation
-- 💻 Document hands-on coding and experiments
-- 🚀 Build real-world projects
+Welcome to my **Learning in Public** repository.
+
+This repository is my personal knowledge base where I document everything I learn through notes, code, notebooks, experiments, and real-world projects.
+
+I believe that **sharing knowledge is one of the best ways to learn.**
+
+---
+
+## 🎯 Purpose
+
+The purpose of this repository is to:
+
+- 📚 Document my learning journey
+- 💻 Learn by building
+- 🧠 Strengthen concepts through implementation
 - 📖 Create revision-friendly notes
-- 🤝 Help other learners through open knowledge sharing
+- 🚀 Build AI projects
+- 🤝 Help other learners
 
 ---
 
-# 📚 What You'll Find Here
+## 🚀 Current Focus
 
-This repository contains learning resources related to:
+- Large Language Models (LLMs)
+- Transformers
+- LangChain
+- Retrieval-Augmented Generation (RAG)
+- AI Agents
+- Deep Learning
+- End-to-End AI Systems
+
+---
+
+## 📚 Topics Covered
 
 - 🐍 Python
 - 🗄 SQL
 - 📊 Excel
 - 📈 Power BI
-- 📐 Mathematics for AI
+- 📐 Mathematics
 - 📉 Statistics
 - 🔢 NumPy
 - 🐼 Pandas
@@ -39,105 +70,78 @@ This repository contains learning resources related to:
 - 🤖 Machine Learning
 - 🧠 Deep Learning
 - 👁 Computer Vision
-- 💬 Natural Language Processing (NLP)
+- 💬 Natural Language Processing
 - 🔄 Transformers
 - ✨ Generative AI
 - ⛓ LangChain
-- 📚 Retrieval-Augmented Generation (RAG)
+- 📚 RAG
 - 🤖 AI Agents
 - ⚙️ MLOps
-- ☁️ Cloud & Deployment
-- 🚀 End-to-End AI Projects
 
 ---
 
-# 💡 Learning Philosophy
+## 💡 Learning Philosophy
 
-> **Learn → Build → Share → Repeat**
+```
 
-I believe the best way to master a concept is to:
+Learn
+↓
+Build
+↓
+Document
+↓
+Share
+↓
+Repeat
 
-1. Learn the theory
-2. Implement it with code
-3. Document it clearly
-4. Build projects using it
-5. Share the knowledge
+```
 
 ---
 
-# 📌 Repository Structure
+## 📂 Repository Contents
 
-The repository is organized according to my learning journey.
-
-Each topic may include:
+Throughout this repository you'll find:
 
 - 📖 Notes
-- 💻 Code Examples
-- 🧪 Experiments
+- 💻 Code
 - 📓 Jupyter Notebooks
-- 📊 Visual Explanations
-- ❓ Practice Questions
-- 🎯 Interview Preparation
+- 🧪 Experiments
 - 🚀 Mini Projects
 - 🏆 Real Projects
+- ❓ Practice Problems
+- 🎯 Interview Preparation
 
 ---
 
-# 🎯 Current Learning Focus
+## 🌟 Featured Projects
 
-Currently exploring:
+- 🎓 Student Engagement Prediction
+- ⛈ Thunderstorm Forecasting
+- 📱 Telecom Churn Prediction
 
-- Large Language Models (LLMs)
-- Transformer Architecture
-- Retrieval-Augmented Generation (RAG)
-- LangChain
-- AI Agents
-- Deep Learning
-- End-to-End AI Applications
+More projects are added as I continue learning.
 
 ---
 
-# 🌱 Why This Repository?
+## 📬 Connect With Me
 
-This repository serves as:
-
-- 📘 My personal knowledge base
-- 🎓 A revision notebook
-- 💼 A public portfolio
-- 🤝 A resource for students and developers
-- 📈 A record of my continuous learning journey
+- 💼 LinkedIn: https://linkedin.com/in/musharraf-bubere007
+- 📧 Email: musharrafbubere007@gmail.com
 
 ---
 
-# ⭐ If You Find This Helpful
+## ⭐ Support
 
-If this repository helps you learn something new:
+If you find this repository useful,
 
 ⭐ Star the repository
 
 🍴 Fork it
 
-📢 Share it with other learners
-
-Learning is better when we grow together.
+📢 Share it with others
 
 ---
 
-# 📬 Connect With Me
-
-I'm always open to connecting with fellow learners, developers, and professionals in AI, Machine Learning, and Data Science.
-
-- 💼 LinkedIn: https://linkedin.com/in/musharraf-bubere007
-- 📧 Email: musharrafbubere007@gmail.com
-
-If you have suggestions, feedback, or just want to discuss AI, ML, Data Science, or Generative AI, feel free to reach out!
-
-Let's learn, build, and grow together. 🚀
-
----
-
-# 🚀 Keep Learning
-
-> *"Consistency beats intensity. Learn something every day."*
-
-Happy Learning! 🚀
+<p align="center">
+<b>Keep Learning. Keep Building. Keep Sharing. 🚀</b>
+</p>

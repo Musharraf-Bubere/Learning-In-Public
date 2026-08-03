@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets\banner.png" alt="Learning In Public Banner" width="100%">
+  <img src="assests\banner.png" alt="Learning In Public Banner" width="100%">
 </p>
 
 <h1 align="center">🚀 Learning in Public</h1>

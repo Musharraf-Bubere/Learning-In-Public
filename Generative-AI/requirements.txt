@@ -14,3 +14,12 @@ sentence_transformers
 langchain_huggingface
 faiss-cpu
 langchain_chroma
+langchain-core
+langchain-anthropic
+openai
+langchain-google-genai
+google-generativeai
+transformers
+huggingface-hub
+numpy
+scikit-learn

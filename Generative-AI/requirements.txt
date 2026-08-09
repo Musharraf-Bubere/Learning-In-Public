@@ -23,3 +23,6 @@ transformers
 huggingface-hub
 numpy
 scikit-learn
+streamlit
+torch 
+torchvision

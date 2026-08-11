@@ -28,3 +28,4 @@ torch
 torchvision
 pydantic
 pydantic[email]
+langchain-ollama

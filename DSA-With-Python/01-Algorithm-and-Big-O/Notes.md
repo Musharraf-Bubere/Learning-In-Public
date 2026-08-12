@@ -452,3 +452,371 @@ These are the first building blocks of complexity analysis.
 Next we will continue with **Big O Analysis** and learn more important complexity patterns before moving to Arrays.
 
 We will not move forward until these fundamentals are comfortable.
+
+---
+
+# Day 2 — Additional Big O Complexity
+
+## 17. O(log n) — Logarithmic Time
+
+An algorithm is **O(log n)** when the amount of work grows logarithmically as the input size increases.
+
+A common pattern is repeatedly reducing the search space by half.
+
+### Example
+
+Suppose we have a sorted list:
+
+```text
+[1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+We want to find `7`.
+
+Instead of checking every element one by one, we can look at the middle:
+
+```text
+[1, 2, 3, 4] | [5, 6, 7, 8]
+```
+
+Since `7` is greater than the middle value, we can ignore the left half.
+
+The search space becomes smaller:
+
+```text
+8 elements
+↓
+4 elements
+↓
+2 elements
+↓
+1 element
+```
+
+The search space is repeatedly divided by 2.
+
+Therefore:
+
+```text
+Time Complexity: O(log n)
+```
+
+### Important Idea
+
+> **O(log n) → repeatedly reduce the problem size, typically by half.**
+
+---
+
+## 18. Understanding O(log n)
+
+For example:
+
+```text
+n = 16
+
+16
+↓
+8
+↓
+4
+↓
+2
+↓
+1
+```
+
+It takes 4 halvings.
+
+Therefore:
+
+```text
+log₂(16) = 4
+```
+
+Another example:
+
+```text
+n = 32
+
+32
+↓
+16
+↓
+8
+↓
+4
+↓
+2
+↓
+1
+```
+
+It takes 5 halvings.
+
+Therefore:
+
+```text
+log₂(32) = 5
+```
+
+The important idea is not memorizing the calculation.
+
+The important pattern is:
+
+```text
+n → n/2 → n/4 → n/8 → ...
+```
+
+---
+
+# 19. O(n log n) — Linearithmic Time
+
+An algorithm can have:
+
+- `n` amount of work
+- repeated across `log n` levels
+
+Therefore:
+
+```text
+n × log n
+```
+
+gives:
+
+```text
+O(n log n)
+```
+
+### Example
+
+Suppose an algorithm processes `n` elements at each of `log n` levels.
+
+If:
+
+```text
+n = 8
+```
+
+then:
+
+```text
+log₂(8) = 3
+```
+
+The work can be viewed as:
+
+```text
+Level 1 → 8 operations
+Level 2 → 8 operations
+Level 3 → 8 operations
+```
+
+Total:
+
+```text
+8 + 8 + 8
+= 8 × 3
+= 24
+```
+
+Therefore:
+
+```text
+O(n log n)
+```
+
+### Important Idea
+
+> **O(n log n) → n work performed across log n levels.**
+
+This complexity commonly appears in efficient sorting algorithms such as Merge Sort.
+
+---
+
+# 20. O(log n) vs O(n log n)
+
+### O(log n)
+
+The algorithm mainly reduces the problem size repeatedly.
+
+```text
+n
+↓
+n/2
+↓
+n/4
+↓
+n/8
+↓
+...
+```
+
+Example:
+
+```text
+Binary Search
+```
+
+Typical complexity:
+
+```text
+O(log n)
+```
+
+---
+
+### O(n log n)
+
+The algorithm performs `n` amount of work at each logarithmic level.
+
+```text
+n work
+×
+log n levels
+```
+
+Therefore:
+
+```text
+O(n log n)
+```
+
+---
+
+# 21. Complexity Growth Order
+
+For large input sizes, the following complexities generally grow from slower to faster:
+
+```text
+O(1)
+↓
+O(log n)
+↓
+O(n)
+↓
+O(n log n)
+↓
+O(n²)
+```
+
+This means an algorithm with `O(log n)` generally scales much better than one with `O(n)` for very large inputs.
+
+Similarly, `O(n)` generally scales better than `O(n log n)`, which generally scales better than `O(n²)`.
+
+---
+
+# 22. Complexity Patterns Learned So Far
+
+| Complexity | Name | Main Idea |
+|---|---|---|
+| O(1) | Constant | Direct/constant amount of work |
+| O(log n) | Logarithmic | Repeatedly reduce the problem size |
+| O(n) | Linear | Process input elements proportionally to n |
+| O(n log n) | Linearithmic | n work across log n levels |
+| O(n²) | Quadratic | n work repeated n times |
+
+---
+
+# 23. Mental Models
+
+Instead of memorizing formulas, recognize these patterns:
+
+```text
+O(1)
+→ Direct access / constant work
+```
+
+```text
+O(log n)
+→ Keep cutting the search space
+```
+
+```text
+O(n)
+→ Go through the input
+```
+
+```text
+O(n log n)
+→ Process n elements across log n levels
+```
+
+```text
+O(n²)
+→ Compare/process n elements against n elements
+```
+
+---
+
+# 24. Important Reminder
+
+Do not determine complexity only by counting loops.
+
+Always ask:
+
+> **How does the amount of work grow as the input size `n` grows?**
+
+For example:
+
+```python
+for i in range(n):
+    ...
+```
+
+→ `O(n)`
+
+While:
+
+```python
+for i in range(n):
+    for j in range(n):
+        ...
+```
+
+→ `O(n²)`
+
+And an algorithm that repeatedly halves its search space:
+
+```text
+n → n/2 → n/4 → n/8 → ...
+```
+
+→ `O(log n)`
+
+---
+
+# 25. Day 2 Key Takeaways
+
+- `n` represents the input size.
+- `O(log n)` grows logarithmically.
+- A common `O(log n)` pattern is repeatedly cutting the search space in half.
+- Binary Search is a classic example of `O(log n)`.
+- `O(n log n)` combines linear work with logarithmic levels.
+- Merge Sort is a common example of `O(n log n)`.
+- `O(log n)` generally grows much more slowly than `O(n)`.
+- `O(n log n)` generally grows faster than `O(n)` but slower than `O(n²)`.
+- Always analyze how the number of operations grows with `n`.
+
+---
+
+# 26. Complexity Summary
+
+```text
+O(1)
+Constant
+
+O(log n)
+Logarithmic
+
+O(n)
+Linear
+
+O(n log n)
+Linearithmic
+
+O(n²)
+Quadratic
+```
+
+These complexity classes form an important foundation for understanding the efficiency of algorithms.

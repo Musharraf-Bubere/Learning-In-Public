@@ -820,3 +820,317 @@ Quadratic
 ```
 
 These complexity classes form an important foundation for understanding the efficiency of algorithms.
+
+
+---
+
+# Day 3 — Combining Big O Complexities
+
+## 27. Sequential Operations
+
+When operations happen one after another, we **add** their complexities.
+
+Example:
+
+```python
+print(numbers[0])
+
+for number in numbers:
+    print(number)
+```
+
+Complexity:
+
+```text
+O(1) + O(n)
+```
+
+The dominant term is `O(n)`:
+
+```text
+O(1) + O(n) → O(n)
+```
+
+Therefore:
+
+```text
+Overall: O(n)
+```
+
+---
+
+## 28. Multiple Sequential Loops
+
+Example:
+
+```python
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    print(j)
+```
+
+Each loop is:
+
+```text
+O(n)
+```
+
+Therefore:
+
+```text
+O(n) + O(n)
+= O(2n)
+= O(n)
+```
+
+### Key Rule
+
+> **Sequential operations → Add their complexities.**
+
+---
+
+## 29. Nested Operations
+
+When one operation is performed inside another, their work is multiplied.
+
+Example:
+
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+
+Outer loop:
+
+```text
+O(n)
+```
+
+Inner loop:
+
+```text
+O(n)
+```
+
+Because the inner loop runs `n` times for every outer iteration:
+
+```text
+n × n = n²
+```
+
+Therefore:
+
+```text
+O(n²)
+```
+
+### Key Rule
+
+> **Nested operations → Multiply their complexities.**
+
+---
+
+## 30. Sequential + Nested Operations
+
+Consider:
+
+```python
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    for k in range(n):
+        print(j, k)
+
+for x in range(n):
+    print(x)
+```
+
+Break it into parts:
+
+```text
+First loop       → O(n)
+
+Nested loops     → O(n²)
+
+Last loop        → O(n)
+```
+
+Since the operations are sequential:
+
+```text
+O(n) + O(n²) + O(n)
+```
+
+The dominant term is `O(n²)`:
+
+```text
+O(n) + O(n²) + O(n)
+→ O(n²)
+```
+
+Therefore:
+
+```text
+Overall Time Complexity: O(n²)
+```
+
+---
+
+## 31. Dominant Term
+
+When adding different complexity terms, keep the term that grows the fastest.
+
+Examples:
+
+```text
+O(1) + O(n)
+→ O(n)
+```
+
+```text
+O(n) + O(n)
+→ O(n)
+```
+
+```text
+O(n) + O(n²)
+→ O(n²)
+```
+
+```text
+O(n) + O(n²) + O(n³)
+→ O(n³)
+```
+
+### Important Idea
+
+> The fastest-growing term dominates the overall complexity.
+
+---
+
+## 32. Sequential vs Nested
+
+### Sequential
+
+```python
+for i in range(n):
+    ...
+
+for j in range(n):
+    ...
+```
+
+```text
+O(n) + O(n)
+→ O(n)
+```
+
+### Nested
+
+```python
+for i in range(n):
+    for j in range(n):
+        ...
+```
+
+```text
+O(n) × O(n)
+→ O(n²)
+```
+
+---
+
+## 33. Mental Model
+
+Remember:
+
+```text
+Sequential
+↓
+ADD
+↓
+O(n) + O(n)
+↓
+O(n)
+```
+
+```text
+Nested
+↓
+MULTIPLY
+↓
+O(n) × O(n)
+↓
+O(n²)
+```
+
+And:
+
+```text
+Different sequential complexities
+↓
+ADD
+↓
+Keep the dominant term
+```
+
+Example:
+
+```text
+O(n) + O(n²)
+↓
+O(n²)
+```
+
+---
+
+# 34. Day 3 Key Takeaways
+
+- Sequential operations are added.
+- Nested operations are multiplied.
+- Constant factors are ignored.
+- When different complexity terms are added, the dominant term remains.
+- `O(n) + O(n)` → `O(n)`
+- `O(n) + O(n²)` → `O(n²)`
+- `O(n) × O(n)` → `O(n²)`
+- Always analyze the structure of the code instead of simply counting loops.
+
+---
+
+# 35. Big O So Far
+
+```text
+O(1)
+↓
+Constant
+
+O(log n)
+↓
+Logarithmic
+
+O(n)
+↓
+Linear
+
+O(n log n)
+↓
+Linearithmic
+
+O(n²)
+↓
+Quadratic
+```
+
+### Combination Rules
+
+```text
+Sequential → ADD
+
+Nested → MULTIPLY
+
+Different terms → Keep the dominant term
+```

@@ -47,19 +47,55 @@
 #         right = middle - 1
 
 
-# O(n log n) - Linearithmic Time
+# # O(n log n) - Linearithmic Time
 
-numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 
-n = len(numbers)
+# n = len(numbers)
 
-levels = 0
-size = n
+# levels = 0
+# size = n
 
-while size > 1:
-    size = size // 2
-    levels += 1
+# while size > 1:
+#     size = size // 2
+#     levels += 1
 
-for _ in range(levels):
-    for number in numbers:
-        print(number)
+# for _ in range(levels):
+#     for number in numbers:
+#         print(number)
+
+
+# Sequential operations
+
+numbers = [1, 2, 3, 4, 5]
+
+# O(1)
+print(numbers[0])
+
+# O(n)
+for number in numbers:
+    print(number)
+
+# O(n)
+for number in numbers:
+    print(number)
+
+# Overall: O(1) + O(n) + O(n)
+# Overall complexity: O(n)
+
+
+# Sequential + nested operations
+
+numbers = [1, 2, 3, 4, 5]
+
+# O(n)
+for number in numbers:
+    print(number)
+
+# O(n²)
+for i in numbers:
+    for j in numbers:
+        print(i, j)
+
+# Overall: O(n) + O(n²)
+# Overall complexity: O(n²)

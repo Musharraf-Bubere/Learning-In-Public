@@ -107,3 +107,61 @@ The value of i is multiplied by 2 after every iteration:
 Therefore, the number of iterations grows logarithmically with the input size n.
 
 Time Complexity = O(log n)
+
+
+---
+
+## Problem 3 — Sequential vs Nested Complexity
+
+Consider the following code:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    for k in range(n):
+        print(j, k)
+
+for x in range(n):
+    print(x)
+```
+
+### Questions
+
+1. What is the complexity of the first loop?
+2. What is the complexity of the nested loops?
+3. What is the complexity of the last loop?
+4. What is the overall time complexity?
+5. Explain why.
+
+### Your Answer
+
+```text
+1. First loop → O(n)
+2. Nested loops → O(n²)
+3. Last loop → O(n)
+4. Overall → O(n²)
+```
+
+### Time Complexity
+
+```text
+O(n²)
+```
+
+### Explanation
+
+The first and last loops are sequential O(n) operations.
+
+The nested loops perform n × n operations, so they are O(n²).
+
+Therefore:
+
+O(n) + O(n²) + O(n)
+
+The O(n²) term grows faster than O(n), so it dominates the overall complexity.
+
+Therefore, the final time complexity is O(n²).

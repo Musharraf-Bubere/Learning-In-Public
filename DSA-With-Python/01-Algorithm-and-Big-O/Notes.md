@@ -1134,3 +1134,423 @@ Nested → MULTIPLY
 
 Different terms → Keep the dominant term
 ```
+
+---
+
+# Day 4 — Combining Big O in Real Code
+
+## 36. Analyzing Complex Code Step by Step
+
+When code contains multiple loops and operations, don't try to determine the overall complexity immediately.
+
+Use this process:
+
+```text
+1. Analyze each part separately
+2. Identify sequential operations
+3. Identify nested operations
+4. Add sequential complexities
+5. Multiply nested complexities
+6. Remove constant factors
+7. Keep the dominant term
+```
+
+---
+
+## 37. Sequential Operations
+
+When operations happen one after another, add their complexities.
+
+Example:
+
+```python
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    print(j)
+```
+
+Analysis:
+
+```text
+O(n) + O(n)
+= O(2n)
+= O(n)
+```
+
+Therefore:
+
+```text
+Overall → O(n)
+```
+
+---
+
+## 38. Nested Operations
+
+When one loop is inside another, multiply their complexities.
+
+Example:
+
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+
+Analysis:
+
+```text
+O(n) × O(n)
+= O(n²)
+```
+
+Therefore:
+
+```text
+Overall → O(n²)
+```
+
+---
+
+## 39. Logarithmic Loop
+
+A loop where the variable doubles each iteration:
+
+```python
+i = 1
+
+while i < n:
+    print(i)
+    i *= 2
+```
+
+has:
+
+```text
+O(log n)
+```
+
+because:
+
+```text
+1 → 2 → 4 → 8 → 16 → ...
+```
+
+The number of iterations grows logarithmically.
+
+---
+
+## 40. O(n log n) from Nested Complexity
+
+Consider:
+
+```python
+i = 1
+
+while i < n:
+    for j in range(n):
+        print(i, j)
+
+    i *= 2
+```
+
+Analysis:
+
+```text
+while loop → O(log n)
+
+inner loop → O(n)
+```
+
+The inner loop runs during every iteration of the while loop:
+
+```text
+O(log n) × O(n)
+= O(n log n)
+```
+
+Therefore:
+
+```text
+Overall → O(n log n)
+```
+
+---
+
+## 41. Combining O(n log n) and O(n)
+
+Consider:
+
+```python
+i = 1
+
+while i < n:
+    for j in range(n):
+        print(i, j)
+
+    i *= 2
+
+for x in range(n):
+    print(x)
+```
+
+First section:
+
+```text
+O(n log n)
+```
+
+Second section:
+
+```text
+O(n)
+```
+
+They are sequential:
+
+```text
+O(n log n) + O(n)
+```
+
+The dominant term is:
+
+```text
+O(n log n)
+```
+
+Therefore:
+
+```text
+Overall → O(n log n)
+```
+
+---
+
+## 42. Common Mistakes
+
+### Mistake 1 — Assuming every loop is O(n²)
+
+This:
+
+```python
+for i in range(n):
+    print(i)
+```
+
+is:
+
+```text
+O(n)
+```
+
+Not O(n²).
+
+---
+
+### Mistake 2 — Multiplying sequential loops
+
+This:
+
+```python
+for i in range(n):
+    ...
+
+for j in range(n):
+    ...
+```
+
+is:
+
+```text
+O(n) + O(n)
+→ O(n)
+```
+
+Not:
+
+```text
+O(n²)
+```
+
+---
+
+### Mistake 3 — Ignoring the dominant term
+
+```text
+O(n) + O(n²)
+```
+
+becomes:
+
+```text
+O(n²)
+```
+
+because O(n²) grows faster.
+
+---
+
+### Mistake 4 — Confusing O(log n) and O(n log n)
+
+```text
+O(log n)
+→ logarithmic number of operations
+```
+
+while:
+
+```text
+O(n log n)
+→ n operations at each logarithmic level
+```
+
+---
+
+# 43. Big O Analysis Checklist
+
+When you see an algorithm, ask:
+
+### Question 1
+
+Does it access something directly?
+
+```text
+→ O(1)
+```
+
+### Question 2
+
+Does it process each element?
+
+```text
+→ O(n)
+```
+
+### Question 3
+
+Does the problem size repeatedly get divided?
+
+```text
+→ O(log n)
+```
+
+### Question 4
+
+Are operations nested?
+
+```text
+→ Multiply
+```
+
+### Question 5
+
+Are operations sequential?
+
+```text
+→ Add
+```
+
+### Question 6
+
+Are there different complexity terms?
+
+```text
+→ Keep the dominant term
+```
+
+---
+
+# 44. Day 4 Key Takeaways
+
+The most important skill from today is not memorizing more Big O values.
+
+It is learning how to **analyze an algorithm step by step**.
+
+Remember:
+
+```text
+Sequential → ADD
+Nested → MULTIPLY
+Dominant term → KEEP
+```
+
+Examples:
+
+```text
+O(1) + O(n)
+→ O(n)
+```
+
+```text
+O(n) + O(n)
+→ O(n)
+```
+
+```text
+O(n) + O(n²)
+→ O(n²)
+```
+
+```text
+O(log n) × O(n)
+→ O(n log n)
+```
+
+```text
+O(n) × O(n)
+→ O(n²)
+```
+
+---
+
+# 45. Big O Foundation Complete
+
+So far we have learned:
+
+```text
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n²)
+```
+
+We can now analyze simple combinations of these complexities.
+
+This forms the foundation we need before moving into data structures.
+
+---
+
+# 🚀 Next Topic
+
+The next major topic is:
+
+```text
+Arrays / Python Lists
+```
+
+We will learn:
+
+```text
+Array
+↓
+Python List
+↓
+Indexing
+↓
+Traversal
+↓
+Searching
+↓
+Insertion
+↓
+Deletion
+↓
+Complexities
+↓
+Practice
+```
+
+We will connect every operation back to Big O.

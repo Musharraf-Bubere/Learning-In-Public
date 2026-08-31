@@ -165,3 +165,58 @@ O(n) + O(n²) + O(n)
 The O(n²) term grows faster than O(n), so it dominates the overall complexity.
 
 Therefore, the final time complexity is O(n²).
+
+---
+
+## Problem 4 — Combined Complexity
+
+Consider:
+
+```python
+i = 1
+
+while i < n:
+    for j in range(n):
+        print(i, j)
+
+    i *= 2
+
+for x in range(n):
+    print(x)
+```
+
+### Analysis
+
+```text
+While loop → O(log n)
+
+Inner for loop → O(n)
+
+While + inner for:
+O(log n) × O(n)
+→ O(n log n)
+
+Last for loop → O(n)
+```
+
+### Overall Time Complexity
+
+```text
+O(n log n) + O(n)
+→ O(n log n)
+```
+
+### Explanation
+
+The while loop doubles `i` on every iteration, so it runs in O(log n) time.
+
+The inner loop processes n elements during every while-loop iteration, giving O(n log n).
+
+The final loop runs sequentially in O(n).
+
+Therefore:
+
+O(n log n) + O(n)
+→ O(n log n)
+
+The O(n log n) term dominates O(n).

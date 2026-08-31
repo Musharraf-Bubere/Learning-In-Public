@@ -1,4 +1,4 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -9,12 +9,10 @@ from typing import Literal
 
 load_dotenv()
 
-llm = HuggingFaceEndpoint(
-    repo_id='deepseek-ai/DeepSeek-V4-Pro-0813',
-    task="text-generation"
+model = ChatGoogleGenerativeAI(
+    model="gemini-3.7-flash",
+    temperature=0.7
 )
-
-model = ChatHuggingFace(llm=llm)
 
 parser = StrOutputParser()
 

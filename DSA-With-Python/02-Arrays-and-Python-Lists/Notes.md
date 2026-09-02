@@ -473,3 +473,426 @@ Deletion
 ```
 
 This is the beginning of understanding **why different data structures are useful for different operations**.
+
+---
+
+## Day 6 — Array Traversal Patterns
+
+Today we practiced common array traversal problems using Python lists.
+
+The main idea is:
+
+> Traverse the list once and maintain a running value.
+
+These patterns are extremely common in DSA.
+
+---
+
+# 16. Finding the Maximum Element
+
+To find the largest element, start by assuming the first element is the maximum.
+
+Then traverse the list and update the maximum whenever a larger element is found.
+
+Example:
+
+    numbers = [4, 7, 2, 9, 5]
+
+    maximum = numbers[0]
+
+    for number in numbers:
+        if number > maximum:
+            maximum = number
+
+    print(maximum)
+
+Output:
+
+    9
+
+The algorithm checks each element and keeps track of the largest value seen so far.
+
+### Complexity
+
+    Time Complexity: O(n)
+
+    Space Complexity: O(1)
+
+Why?
+
+There are n elements, so we may need to examine every element.
+
+Only one additional variable, maximum, is used.
+
+---
+
+# 17. Finding the Minimum Element
+
+Finding the minimum uses the same pattern as finding the maximum.
+
+The difference is that we check whether the current element is smaller.
+
+Example:
+
+    numbers = [10, 5, 2, 8, 3]
+
+    minimum = numbers[0]
+
+    for number in numbers:
+        if number < minimum:
+            minimum = number
+
+    print(minimum)
+
+Output:
+
+    2
+
+### Reusable Function
+
+    def find_minimum(numbers):
+        minimum = numbers[0]
+
+        for number in numbers:
+            if number < minimum:
+                minimum = number
+
+        return minimum
+
+### Complexity
+
+    Time Complexity: O(n)
+
+    Space Complexity: O(1)
+
+---
+
+# 18. Calculating the Sum
+
+To calculate the sum of all elements, maintain a running total.
+
+Start the total at 0.
+
+Example:
+
+    numbers = [10, 20, 30, 40]
+
+    sum_numbers = 0
+
+    for number in numbers:
+        sum_numbers = sum_numbers + number
+
+    print(sum_numbers)
+
+Output:
+
+    100
+
+### Reusable Function
+
+    def calculate_sum(numbers):
+        sum_numbers = 0
+
+        for number in numbers:
+            sum_numbers = sum_numbers + number
+
+        return sum_numbers
+
+### Complexity
+
+    Time Complexity: O(n)
+
+    Space Complexity: O(1)
+
+Why?
+
+Every element must be visited once.
+
+Only one additional variable is used to store the running total.
+
+---
+
+# 19. Counting Occurrences
+
+Counting occurrences means finding how many times a target value appears in a list.
+
+Example:
+
+    numbers = [10, 20, 30, 30, 40, 30]
+
+    target = 30
+
+    repeat_number = 0
+
+    for number in numbers:
+        if number == target:
+            repeat_number += 1
+
+    print(repeat_number)
+
+Output:
+
+    3
+
+### Reusable Function
+
+    def count_occurrences(numbers, target):
+        repeat_number = 0
+
+        for number in numbers:
+            if number == target:
+                repeat_number += 1
+
+        return repeat_number
+
+### Complexity
+
+    Time Complexity: O(n)
+
+    Space Complexity: O(1)
+
+Why?
+
+The algorithm may need to check every element, even if the target is found multiple times.
+
+The comparison itself is O(1), but it is performed n times.
+
+Therefore:
+
+    O(1) × n = O(n)
+
+---
+
+# 20. The Running Value Pattern
+
+The problems we solved today follow a common pattern.
+
+The general structure is:
+
+    running_value = initial_value
+
+    for element in numbers:
+        # update running_value
+
+    return running_value
+
+Different problems use different running values.
+
+| Problem | Running Value | Update Rule |
+|---|---|---|
+| Find Maximum | `maximum` | Update if current element is larger |
+| Find Minimum | `minimum` | Update if current element is smaller |
+| Calculate Sum | `sum_numbers` | Add current element |
+| Count Occurrences | `repeat_number` | Increase when target is found |
+
+This pattern is one of the most important basic array traversal techniques.
+
+---
+
+# 21. Why These Algorithms Are O(n)
+
+Consider:
+
+    for number in numbers:
+        if number == target:
+            repeat_number += 1
+
+The comparison:
+
+    number == target
+
+takes constant time:
+
+    O(1)
+
+However, the loop may execute once for every element.
+
+If the list contains n elements:
+
+    O(1) × n = O(n)
+
+Therefore:
+
+    Overall Time Complexity = O(n)
+
+### Important Rule
+
+> A single traversal through n elements is generally O(n).
+
+---
+
+# 22. Maximum and Minimum Pattern
+
+Maximum and minimum problems are almost identical.
+
+### Maximum
+
+    maximum = numbers[0]
+
+    for number in numbers:
+        if number > maximum:
+            maximum = number
+
+### Minimum
+
+    minimum = numbers[0]
+
+    for number in numbers:
+        if number < minimum:
+            minimum = number
+
+The main difference is the comparison operator:
+
+    Maximum → >
+
+    Minimum → <
+
+---
+
+# 23. Running Counter Pattern
+
+Counting problems commonly use a counter.
+
+Example:
+
+    count = 0
+
+    for number in numbers:
+        if condition:
+            count += 1
+
+    return count
+
+This pattern can be used for:
+
+- Counting occurrences
+- Counting positive numbers
+- Counting negative numbers
+- Counting even numbers
+- Counting elements satisfying a condition
+
+The traversal is usually:
+
+    Time Complexity: O(n)
+
+And if only a counter is used:
+
+    Space Complexity: O(1)
+
+---
+
+# 24. Running Sum Pattern
+
+The running sum pattern maintains a total while traversing.
+
+Example:
+
+    total = 0
+
+    for number in numbers:
+        total += number
+
+    return total
+
+The important idea is:
+
+> Do not repeatedly calculate the entire sum. Build the result while traversing.
+
+Complexity:
+
+    Time Complexity: O(n)
+
+    Space Complexity: O(1)
+
+---
+
+# 25. Important Mental Model
+
+When given an array problem, ask:
+
+    1. Do I need to visit every element?
+
+    2. What information do I need to maintain while traversing?
+
+    3. What should the initial value be?
+
+    4. How should I update that value?
+
+    5. What should I return after the loop?
+
+For example:
+
+    Find maximum
+    → maintain maximum
+
+    Find minimum
+    → maintain minimum
+
+    Find sum
+    → maintain total
+
+    Count elements
+    → maintain counter
+
+---
+
+# 26. Day 6 Key Takeaways
+
+- Array traversal means visiting elements one by one.
+
+- A single complete traversal is generally O(n).
+
+- Finding the maximum can be solved using a running maximum.
+
+- Finding the minimum can be solved using a running minimum.
+
+- Sum problems can be solved using a running total.
+
+- Counting problems can be solved using a running counter.
+
+- These algorithms usually require O(1) extra space when only a few variables are used.
+
+- An O(1) operation inside an O(n) loop results in O(n) overall time.
+
+- Maximum and minimum use almost identical logic.
+
+- The running value pattern is a fundamental DSA technique.
+
+---
+
+# 27. Connection With Previous Big O Knowledge
+
+Our Big O concepts now directly apply to array problems.
+
+    Direct index access
+    → O(1)
+
+    Single traversal
+    → O(n)
+
+    Linear search
+    → O(n) worst case
+
+    Find maximum
+    → O(n)
+
+    Find minimum
+    → O(n)
+
+    Calculate sum
+    → O(n)
+
+    Count occurrences
+    → O(n)
+
+The key skill is no longer just memorizing Big O.
+
+We are now learning to:
+
+    Look at the code
+    ↓
+    Understand how many times operations execute
+    ↓
+    Determine the complexity
+
+This is the foundation for analyzing more advanced DSA algorithms.

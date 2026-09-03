@@ -38,102 +38,127 @@
 
 # Array Traversal — Find Maximum
 
-numbers = [4, 7, 2, 9, 5]
+# numbers = [4, 7, 2, 9, 5]
 
-maximum = numbers[0]
+# maximum = numbers[0]
 
-for number in numbers:
-    if number > maximum:
-        maximum = number
+# for number in numbers:
+#     if number > maximum:
+#         maximum = number
 
-print("Maximum:", maximum)
-
-
-# Array Traversal — Find Minimum
-
-numbers = [10, 5, 2, 8, 3]
-
-minimum = numbers[0]
-
-for number in numbers:
-    if number < minimum:
-        minimum = number
-
-print("Minimum:", minimum)
+# print("Maximum:", maximum)
 
 
-# Array Traversal — Calculate Sum
+# # Array Traversal — Find Minimum
 
-numbers = [10, 20, 30, 40]
+# numbers = [10, 5, 2, 8, 3]
 
-sum_numbers = 0
+# minimum = numbers[0]
 
-for number in numbers:
-    sum_numbers = sum_numbers + number
+# for number in numbers:
+#     if number < minimum:
+#         minimum = number
 
-print("Sum:", sum_numbers)
-
-
-# Array Traversal — Count Occurrences
-
-numbers = [10, 20, 30, 30, 40, 30]
-
-target = 30
-
-repeat_number = 0
-
-for number in numbers:
-    if number == target:
-        repeat_number += 1
-
-print("Occurrences:", repeat_number)
+# print("Minimum:", minimum)
 
 
-# Find Minimum Using Function
+# # Array Traversal — Calculate Sum
 
-def find_minimum(numbers):
-    minimum = numbers[0]
+# numbers = [10, 20, 30, 40]
 
-    for number in numbers:
-        if number < minimum:
-            minimum = number
+# sum_numbers = 0
 
-    return minimum
+# for number in numbers:
+#     sum_numbers = sum_numbers + number
 
-
-numbers = [10, 5, 2, 8, 3]
-
-print("Function Minimum:", find_minimum(numbers))
+# print("Sum:", sum_numbers)
 
 
-# Calculate Sum Using Function
+# # Array Traversal — Count Occurrences
 
-def calculate_sum(numbers):
-    sum_numbers = 0
+# numbers = [10, 20, 30, 30, 40, 30]
 
-    for number in numbers:
-        sum_numbers = sum_numbers + number
+# target = 30
 
-    return sum_numbers
+# repeat_number = 0
 
+# for number in numbers:
+#     if number == target:
+#         repeat_number += 1
 
-numbers = [10, 20, 30, 40]
-
-print("Function Sum:", calculate_sum(numbers))
-
-
-# Count Occurrences Using Function
-
-def count_occurrences(numbers, target):
-    repeat_number = 0
-
-    for number in numbers:
-        if number == target:
-            repeat_number += 1
-
-    return repeat_number
+# print("Occurrences:", repeat_number)
 
 
-numbers = [10, 20, 30, 30, 40, 30]
+# # Find Minimum Using Function
 
-print("Function Occurrences:", count_occurrences(numbers, 30))
+# def find_minimum(numbers):
+#     minimum = numbers[0]
+
+#     for number in numbers:
+#         if number < minimum:
+#             minimum = number
+
+#     return minimum
+
+
+# numbers = [10, 5, 2, 8, 3]
+
+# print("Function Minimum:", find_minimum(numbers))
+
+
+# # Calculate Sum Using Function
+
+# def calculate_sum(numbers):
+#     sum_numbers = 0
+
+#     for number in numbers:
+#         sum_numbers = sum_numbers + number
+
+#     return sum_numbers
+
+
+# numbers = [10, 20, 30, 40]
+
+# print("Function Sum:", calculate_sum(numbers))
+
+
+# # Count Occurrences Using Function
+
+# def count_occurrences(numbers, target):
+#     repeat_number = 0
+
+#     for number in numbers:
+#         if number == target:
+#             repeat_number += 1
+
+#     return repeat_number
+
+
+# numbers = [10, 20, 30, 30, 40, 30]
+
+# print("Function Occurrences:", count_occurrences(numbers, 30))
+
+# ============================================================
+# Day 7 — Reverse an Array Using Two Pointers
+# ============================================================
+
+def reverse_array(numbers):
+    left = 0
+    right = len(numbers) - 1
+
+    while left < right:
+        numbers[left], numbers[right] = numbers[right], numbers[left]
+
+        left += 1
+        right -= 1
+
+    return numbers
+
+
+# Example
+numbers = [10, 20, 30, 40, 50]
+
+print(reverse_array(numbers))
+
+# Output:
+# [50, 40, 30, 20, 10]

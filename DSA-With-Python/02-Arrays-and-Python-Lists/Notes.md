@@ -896,3 +896,278 @@ We are now learning to:
     Determine the complexity
 
 This is the foundation for analyzing more advanced DSA algorithms.
+
+## Day 7 — Reverse an Array Using Two Pointers
+
+### 1. Problem
+
+Given an array/list, reverse the order of its elements.
+
+Example:
+
+`[10, 20, 30, 40, 50]`
+
+After reversing:
+
+`[50, 40, 30, 20, 10]`
+
+---
+
+### 2. Two-Pointer Technique
+
+The two-pointer technique uses two indexes to work from both ends of the array.
+
+- `left` starts from the beginning.
+- `right` starts from the end.
+- Swap the elements at `left` and `right`.
+- Move `left` forward.
+- Move `right` backward.
+- Continue until the pointers meet or cross.
+
+Initial positions:
+
+`left = 0`
+
+`right = len(numbers) - 1`
+
+---
+
+### 3. Swapping Elements
+
+Python allows two elements to be swapped in one statement:
+
+`numbers[left], numbers[right] = numbers[right], numbers[left]`
+
+For example:
+
+`[10, 20, 30, 40, 50]`
+
+Swap index `0` and index `4`:
+
+`[50, 20, 30, 40, 10]`
+
+Then swap index `1` and index `3`:
+
+`[50, 40, 30, 20, 10]`
+
+---
+
+### 4. Moving the Pointers
+
+After every swap:
+
+`left += 1`
+
+`right -= 1`
+
+This moves both pointers toward the center.
+
+Example:
+
+`left = 0, right = 4`
+
+After the first swap:
+
+`left = 1, right = 3`
+
+After the second swap:
+
+`left = 2, right = 2`
+
+---
+
+### 5. Why `while left < right`?
+
+The loop condition is:
+
+`while left < right:`
+
+We do not need to swap when `left == right`.
+
+For an odd-sized array, both pointers meet at the middle element.
+
+Example:
+
+`[10, 20, 30, 40, 50]`
+
+When:
+
+`left = 2`
+
+`right = 2`
+
+The element `30` is already in its correct position.
+
+For an even-sized array, the pointers eventually cross.
+
+Therefore, `left < right` correctly handles both cases.
+
+---
+
+### 6. Complete Algorithm
+
+1. Set `left = 0`.
+2. Set `right = len(numbers) - 1`.
+3. While `left < right`:
+   - Swap `numbers[left]` and `numbers[right]`.
+   - Increment `left`.
+   - Decrement `right`.
+4. Return the reversed array.
+
+---
+
+### 7. Implementation
+
+`def reverse_array(numbers):
+    left = 0
+    right = len(numbers) - 1
+
+    while left < right:
+        numbers[left], numbers[right] = numbers[right], numbers[left]
+
+        left += 1
+        right -= 1
+
+    return numbers`
+
+Example:
+
+`numbers = [10, 20, 30, 40, 50]`
+
+`reverse_array(numbers)`
+
+Output:
+
+`[50, 40, 30, 20, 10]`
+
+---
+
+### 8. Trace
+
+Array:
+
+`[10, 20, 30, 40, 50]`
+
+Initial:
+
+`left = 0`
+`right = 4`
+
+First swap:
+
+`10 ↔ 50`
+
+Array:
+
+`[50, 20, 30, 40, 10]`
+
+Move pointers:
+
+`left = 1`
+`right = 3`
+
+Second swap:
+
+`20 ↔ 40`
+
+Array:
+
+`[50, 40, 30, 20, 10]`
+
+Move pointers:
+
+`left = 2`
+`right = 2`
+
+Condition:
+
+`left < right`
+
+`2 < 2` → False
+
+Loop stops.
+
+Final array:
+
+`[50, 40, 30, 20, 10]`
+
+---
+
+### 9. Complexity Analysis
+
+#### Time Complexity
+
+There are approximately `n / 2` swaps.
+
+Therefore:
+
+`O(n / 2)`
+
+Ignoring constants:
+
+`O(n)`
+
+Time Complexity = **O(n)**
+
+#### Space Complexity
+
+Only two variables are used:
+
+- `left`
+- `right`
+
+No new array is created.
+
+Space Complexity = **O(1)**
+
+This is an **in-place** algorithm.
+
+---
+
+### 10. Important Concept — In-Place Algorithm
+
+An in-place algorithm modifies the original array instead of creating another array.
+
+For example:
+
+`numbers = [10, 20, 30, 40, 50]`
+
+The same `numbers` list is modified during the swaps.
+
+This allows us to reverse the array using:
+
+- O(n) time
+- O(1) extra space
+
+---
+
+### 11. Mental Model
+
+Think of two people standing at opposite ends of the array.
+
+`left → [10, 20, 30, 40, 50] ← right`
+
+They swap the elements.
+
+Then both move one step toward the center.
+
+`    left → [20, 30, 40] ← right`
+
+They continue until they meet.
+
+This is the basic idea behind the **two-pointer technique**.
+
+---
+
+### 12. Key Takeaways
+
+- Two pointers can process an array from both ends.
+- `left` starts at index `0`.
+- `right` starts at index `len(numbers) - 1`.
+- Swap the two elements.
+- Move `left` forward and `right` backward.
+- Use `while left < right`.
+- Reversing this way takes O(n) time.
+- It uses O(1) extra space.
+- The algorithm modifies the original array in-place.
+- Two-pointer techniques are useful for many array and string problems.

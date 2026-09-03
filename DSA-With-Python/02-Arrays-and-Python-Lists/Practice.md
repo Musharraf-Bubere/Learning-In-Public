@@ -307,3 +307,54 @@ Consider:
 
     Extra Space:
     Using only a few variables → O(1) space.
+
+
+## Problem 6 — Reverse an Array Using Two Pointers
+
+### Problem
+
+Write a function `reverse_array(numbers)` that reverses an array/list **in-place** using the two-pointer technique.
+
+Example:
+
+`[10, 20, 30, 40, 50]`
+
+Expected output:
+
+`[50, 40, 30, 20, 10]`
+
+### Questions
+
+1. What should the initial value of `left` be?
+
+2. What should the initial value of `right` be?
+
+3. Why do we use `while left < right` instead of `while left <= right`?
+
+4. What operation is performed between `numbers[left]` and `numbers[right]`?
+
+5. How should `left` and `right` be updated after each swap?
+
+6. What is the time complexity of this algorithm?
+
+7. What is the extra space complexity?
+
+8. Why is this algorithm called an in-place algorithm?
+
+### Your Answers
+
+1. `left = 0`
+
+2. `right = len(numbers) - 1`
+
+3. We use `left < right` because when both pointers meet at the middle element, no swap is needed. The middle element is already in its correct position.
+
+4. The elements at `left` and `right` are swapped.
+
+5. `left` is increased by `1` and `right` is decreased by `1`.
+
+6. Time complexity: `O(n)`
+
+7. Extra space complexity: `O(1)`
+
+8. It is called in-place because the original array is modified directly without creating another array.

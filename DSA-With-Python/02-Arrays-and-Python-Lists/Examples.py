@@ -162,3 +162,66 @@ print(reverse_array(numbers))
 
 # Output:
 # [50, 40, 30, 20, 10]
+
+# ============================================================
+# Day 8 — Check if an Array is Sorted
+# ============================================================
+
+# Ascending Order
+def is_sorted_ascending(numbers):
+    for i in range(len(numbers) - 1):
+        if numbers[i] > numbers[i + 1]:
+            return False
+
+    return True
+
+
+numbers = [10, 20, 30, 40, 50]
+
+print(is_sorted_ascending(numbers))
+
+# Output:
+# True
+
+
+# Not Sorted
+numbers = [10, 20, 15, 40, 50]
+
+print(is_sorted_ascending(numbers))
+
+# Output:
+# False
+
+
+# Descending Order
+def is_sorted_descending(numbers):
+    for i in range(len(numbers) - 1):
+        if numbers[i] < numbers[i + 1]:
+            return False
+
+    return True
+
+
+numbers = [50, 40, 30, 20, 10]
+
+print(is_sorted_descending(numbers))
+
+# Output:
+# True
+
+
+# Descending Order - Not Sorted
+numbers = [50, 40, 35, 45, 10]
+
+print(is_sorted_descending(numbers))
+
+# Output:
+# False
+
+
+# Edge Cases
+print(is_sorted_ascending([]))
+# True
+
+print(is_sorted_ascending([5]))
+# True

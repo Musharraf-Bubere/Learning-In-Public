@@ -358,3 +358,66 @@ Expected output:
 7. Extra space complexity: `O(1)`
 
 8. It is called in-place because the original array is modified directly without creating another array.
+
+## Problem 7 — Check if an Array is Sorted
+
+### Problem
+
+Write a function `is_sorted(numbers)` that checks whether an array/list is sorted in ascending order.
+
+The function should:
+
+- Return `True` if the array is sorted.
+- Return `False` if the array is not sorted.
+- Compare adjacent elements.
+- Stop immediately when an incorrect order is found.
+
+Example:
+
+`[10, 20, 30, 40, 50]` → `True`
+
+`[10, 20, 15, 40, 50]` → `False`
+
+### Questions
+
+1. Why do we compare `numbers[i]` with `numbers[i + 1]`?
+
+2. Why do we use `range(len(numbers) - 1)`?
+
+3. For ascending order, what condition tells us that the array is not sorted?
+
+4. Why can we use `return False` immediately when an incorrect pair is found?
+
+5. What should the function return if the entire loop finishes without finding an incorrect pair?
+
+6. What is the best-case time complexity?
+
+7. What is the worst-case time complexity?
+
+8. What is the extra space complexity?
+
+9. What happens when the input array is empty `[]`?
+
+10. What happens when the input array contains only one element, such as `[5]`?
+
+### Your Answers
+
+1. We compare adjacent elements because the order of every neighboring pair determines whether the complete array is sorted.
+
+2. We use `range(len(numbers) - 1)` because we access `numbers[i + 1]`, so `i` must stop before the last index.
+
+3. The array is not sorted when `numbers[i] > numbers[i + 1]`.
+
+4. We can immediately return `False` because once one adjacent pair is in the wrong order, the entire array is not sorted.
+
+5. If the loop finishes without finding an incorrect pair, the function returns `True`.
+
+6. Best-case time complexity: `O(1)`.
+
+7. Worst-case time complexity: `O(n)`.
+
+8. Extra space complexity: `O(1)`.
+
+9. An empty array returns `True` because there are no adjacent elements that violate the sorted-order condition.
+
+10. A single-element array returns `True` because one element is already considered sorted.

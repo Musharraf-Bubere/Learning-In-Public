@@ -1171,3 +1171,305 @@ This is the basic idea behind the **two-pointer technique**.
 - It uses O(1) extra space.
 - The algorithm modifies the original array in-place.
 - Two-pointer techniques are useful for many array and string problems.
+
+## Day 8 — Check if an Array is Sorted
+
+### 1. Problem
+
+Given an array/list, determine whether its elements are sorted in ascending order.
+
+Example:
+
+`[10, 20, 30, 40, 50]`
+
+Result:
+
+`True`
+
+Example:
+
+`[10, 20, 15, 40, 50]`
+
+Result:
+
+`False`
+
+---
+
+### 2. Core Idea
+
+To check whether an array is sorted in ascending order, compare every element with the element immediately after it.
+
+For ascending order:
+
+`numbers[i] <= numbers[i + 1]`
+
+If we ever find:
+
+`numbers[i] > numbers[i + 1]`
+
+the ascending order is broken.
+
+Therefore, the array is not sorted.
+
+---
+
+### 3. Adjacent Element Comparison
+
+For:
+
+`[10, 20, 30, 40, 50]`
+
+We compare:
+
+`10 <= 20` → True
+
+`20 <= 30` → True
+
+`30 <= 40` → True
+
+`40 <= 50` → True
+
+All adjacent pairs are in the correct order.
+
+Therefore:
+
+`Sorted → True`
+
+For:
+
+`[10, 20, 15, 40, 50]`
+
+We compare:
+
+`10 <= 20` → True
+
+`20 <= 15` → False
+
+The order is broken.
+
+Therefore:
+
+`Not Sorted → False`
+
+---
+
+### 4. Index-Based Traversal
+
+We use indexes because we need access to both:
+
+`numbers[i]`
+
+and:
+
+`numbers[i + 1]`
+
+The loop is:
+
+`for i in range(len(numbers) - 1):`
+
+The `-1` is important because `i + 1` must always be a valid index.
+
+For an array of length `5`, the indexes checked are:
+
+`0, 1, 2, 3`
+
+The last comparison is:
+
+`numbers[3]` with `numbers[4]`
+
+---
+
+### 5. Ascending Order Function
+
+`def is_sorted(numbers):
+    for i in range(len(numbers) - 1):
+        if numbers[i] > numbers[i + 1]:
+            return False
+
+    return True`
+
+If an invalid adjacent pair is found, the function immediately returns `False`.
+
+If the loop completes without finding an invalid pair, the function returns `True`.
+
+---
+
+### 6. Descending Order
+
+The same idea can be used to check descending order.
+
+For descending order:
+
+`50 >= 40 >= 30 >= 20 >= 10`
+
+The order is broken when:
+
+`numbers[i] < numbers[i + 1]`
+
+Function:
+
+`def is_sorted(numbers):
+    for i in range(len(numbers) - 1):
+        if numbers[i] < numbers[i + 1]:
+            return False
+
+    return True`
+
+---
+
+### 7. Early Return
+
+An important optimization is returning immediately when the order is broken.
+
+Example:
+
+`[50, 60, 40, 30, 20]`
+
+For descending order:
+
+`50 < 60` → True
+
+The function immediately executes:
+
+`return False`
+
+There is no need to check the remaining elements.
+
+---
+
+### 8. Best-Case Time Complexity
+
+If the first comparison already shows that the array is not sorted, the function returns immediately.
+
+Example:
+
+`[50, 60, 40, 30, 20]`
+
+Only one comparison is required.
+
+Best-case time complexity:
+
+`O(1)`
+
+---
+
+### 9. Worst-Case Time Complexity
+
+If the array is sorted, the function must check all adjacent pairs.
+
+For `n` elements, there are `n - 1` comparisons.
+
+Therefore:
+
+`O(n - 1)`
+
+Ignoring constants and lower-order terms:
+
+`O(n)`
+
+Worst-case time complexity:
+
+**O(n)**
+
+---
+
+### 10. Space Complexity
+
+The algorithm does not create another array or data structure.
+
+It only uses a loop variable `i` and a few constant-size variables.
+
+The additional memory does not grow with `n`.
+
+Therefore:
+
+**Space Complexity = O(1)**
+
+---
+
+### 11. Sequential vs Nested Loops
+
+When analyzing time complexity, the relationship between loops is important.
+
+Sequential loops are added:
+
+`O(n) + O(n) = O(2n) = O(n)`
+
+Nested loops are multiplied:
+
+`O(n) × O(n) = O(n²)`
+
+Example of sequential loops:
+
+`for i in range(n):
+    print(i)
+
+for j in range(n):
+    print(j)`
+
+Time complexity:
+
+`O(n)`
+
+Example of nested loops:
+
+`for i in range(n):
+    for j in range(n):
+        print(i, j)`
+
+Time complexity:
+
+`O(n²)`
+
+---
+
+### 12. Complexity Analysis Checklist
+
+When analyzing a new algorithm:
+
+1. Identify the input size `n`.
+2. Find the loops.
+3. Determine how many times each loop can execute.
+4. Check whether loops are sequential or nested.
+5. Consider early returns or breaks.
+6. Ignore constant factors.
+7. Keep the dominant term.
+8. For space complexity, check whether additional memory grows with `n`.
+
+---
+
+### 13. Edge Cases
+
+Empty array:
+
+`[]` → `True`
+
+Single-element array:
+
+`[5]` → `True`
+
+Already sorted:
+
+`[10, 20, 30, 40, 50]` → `True`
+
+Not sorted:
+
+`[10, 20, 15, 40, 50]` → `False`
+
+---
+
+### 14. Key Takeaways
+
+- Check adjacent elements to determine whether an array is sorted.
+- Use `numbers[i]` and `numbers[i + 1]`.
+- `range(len(numbers) - 1)` prevents accessing an invalid next index.
+- Return `False` as soon as the order is broken.
+- Return `True` if all adjacent pairs are valid.
+- Ascending order breaks when `numbers[i] > numbers[i + 1]`.
+- Descending order breaks when `numbers[i] < numbers[i + 1]`.
+- Best-case time complexity can be O(1).
+- Worst-case time complexity is O(n).
+- Extra space complexity is O(1).
+- Sequential loops are added.
+- Nested loops are multiplied.

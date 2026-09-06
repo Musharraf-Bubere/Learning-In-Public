@@ -225,3 +225,78 @@ print(is_sorted_ascending([]))
 
 print(is_sorted_ascending([5]))
 # True
+
+# ============================================================
+# Day 9 — Find the Second Largest Distinct Element
+# ============================================================
+
+def find_second_largest(numbers):
+    largest = None
+    second_largest = None
+
+    for number in numbers:
+
+        if largest is None or number > largest:
+            second_largest = largest
+            largest = number
+
+        elif number != largest and (
+            second_largest is None or number > second_largest
+        ):
+            second_largest = number
+
+    return second_largest
+
+
+# Example
+numbers = [5, 10, 8, 15, 20]
+
+print(find_second_largest(numbers))
+
+# Output:
+# 15
+
+
+# Duplicate Largest Value
+numbers = [10, 20, 20, 5]
+
+print(find_second_largest(numbers))
+
+# Output:
+# 10
+
+
+# All Values Equal
+numbers = [20, 20, 20]
+
+print(find_second_largest(numbers))
+
+# Output:
+# None
+
+
+# One Element
+numbers = [5]
+
+print(find_second_largest(numbers))
+
+# Output:
+# None
+
+
+# Empty Array
+numbers = []
+
+print(find_second_largest(numbers))
+
+# Output:
+# None
+
+
+# Negative Values
+numbers = [-10, -5, -20, -3]
+
+print(find_second_largest(numbers))
+
+# Output:
+# -5

@@ -421,3 +421,80 @@ Example:
 9. An empty array returns `True` because there are no adjacent elements that violate the sorted-order condition.
 
 10. A single-element array returns `True` because one element is already considered sorted.
+
+## Problem 8 — Find the Second Largest Distinct Element
+
+### Problem
+
+Write a function `find_second_largest(numbers)` that finds the **second-largest distinct element** in an array/list.
+
+The function should:
+
+- Return the second-largest distinct value.
+- Use a single traversal of the array.
+- Not sort the array.
+- Return `None` if a second-largest distinct value does not exist.
+
+Examples:
+
+`[5, 10, 8, 15, 20]` → `15`
+
+`[10, 20, 20, 5]` → `10`
+
+`[20, 20, 20]` → `None`
+
+`[5]` → `None`
+
+`[]` → `None`
+
+### Questions
+
+1. What two values should we maintain while traversing the array?
+
+2. Why do we initialize `largest` and `second_largest` with `None`?
+
+3. What should happen when the current number is greater than `largest`?
+
+4. Why does the old `largest` become `second_largest` when a new largest is found?
+
+5. What condition should be used to prevent a duplicate of `largest` from becoming `second_largest`?
+
+6. Why do we use `number != largest`?
+
+7. Why is sorting unnecessary for this problem?
+
+8. What is the time complexity of the single-pass solution?
+
+9. What is the extra space complexity?
+
+10. What should the function return when there is no second-largest distinct value?
+
+11. Why should we not initialize `largest` and `second_largest` with `0`?
+
+12. What is the result for `[-10, -5, -20, -3]`?
+
+### Your Answers
+
+1. We maintain `largest` and `second_largest`.
+
+2. We initialize them with `None` to represent that no value has been found yet. It also allows the algorithm to work correctly with negative numbers.
+
+3. The old `largest` becomes `second_largest`, and the current number becomes the new `largest`.
+
+4. The old largest is the next-largest value after a new, larger value is found.
+
+5. We check that the current number is different from `largest` before allowing it to become `second_largest`.
+
+6. `number != largest` prevents a duplicate of the largest value from becoming the second-largest distinct value.
+
+7. Sorting is unnecessary because we can find the result by maintaining `largest` and `second_largest` during a single traversal.
+
+8. Time complexity: `O(n)`.
+
+9. Extra space complexity: `O(1)`.
+
+10. Return `None`.
+
+11. Initializing with `0` can give incorrect results when the array contains negative numbers.
+
+12. Largest = `-3`, second largest = `-5`.

@@ -1473,3 +1473,419 @@ Not sorted:
 - Extra space complexity is O(1).
 - Sequential loops are added.
 - Nested loops are multiplied.
+
+## Day 9 — Find the Second Largest Distinct Element
+
+### 1. Problem
+
+Given an array/list, find the **second-largest distinct element**.
+
+Example:
+
+`[10, 5, 20, 8, 15]`
+
+Result:
+
+`15`
+
+The word **distinct** is important.
+
+Example:
+
+`[10, 20, 20, 5]`
+
+The largest value is `20`.
+
+The second-largest **distinct** value is:
+
+`10`
+
+Not `20`.
+
+---
+
+### 2. Core Idea
+
+Instead of sorting the entire array, we can find the second-largest value using a **single traversal**.
+
+We maintain two values:
+
+`largest`
+
+`second_largest`
+
+While traversing the array, each number is compared with these two values.
+
+---
+
+### 3. When a New Largest is Found
+
+If the current number is greater than `largest`:
+
+`number > largest`
+
+then the old largest value becomes the new second largest.
+
+The update is:
+
+`second_largest = largest`
+
+`largest = number`
+
+Example:
+
+`largest = 10`
+
+`second_largest = 5`
+
+New number:
+
+`20`
+
+Since:
+
+`20 > 10`
+
+we update:
+
+`second_largest = 10`
+
+`largest = 20`
+
+The old largest moves to second largest.
+
+---
+
+### 4. When a New Second Largest is Found
+
+If the number is not greater than `largest`, but it is greater than `second_largest`, it can become the new second largest.
+
+For example:
+
+`largest = 20`
+
+`second_largest = 10`
+
+New number:
+
+`15`
+
+Since:
+
+`15 > 20` → False
+
+but:
+
+`15 > 10` → True
+
+we update:
+
+`second_largest = 15`
+
+The largest remains:
+
+`20`
+
+---
+
+### 5. Handling Duplicate Largest Values
+
+Because we want the second-largest **distinct** value, a duplicate of the largest value must not become the second largest.
+
+Example:
+
+`[10, 20, 20, 5]`
+
+After finding `20`:
+
+`largest = 20`
+
+`second_largest = 10`
+
+When the second `20` is encountered:
+
+`20 > 10` → True
+
+but:
+
+`20 != 20` → False
+
+Therefore, the duplicate `20` is ignored.
+
+The result remains:
+
+`second_largest = 10`
+
+---
+
+### 6. Handling `None`
+
+We can initialize:
+
+`largest = None`
+
+`second_largest = None`
+
+`None` means:
+
+> We have not found a value yet.
+
+When the first number is encountered, it becomes the largest.
+
+Example:
+
+`largest = None`
+
+`number = 20`
+
+Therefore:
+
+`largest = 20`
+
+When another distinct number is found, it can become the second largest.
+
+Example:
+
+`largest = 20`
+
+`second_largest = None`
+
+`number = 15`
+
+Therefore:
+
+`second_largest = 15`
+
+Using `None` is safer than initializing with `0` because array values could be negative.
+
+---
+
+### 7. Complete Algorithm
+
+1. Initialize `largest` as `None`.
+2. Initialize `second_largest` as `None`.
+3. Traverse every number in the array.
+4. If there is no largest value yet or the current number is greater than `largest`:
+   - Move `largest` to `second_largest`.
+   - Make the current number the new `largest`.
+5. Otherwise, if the current number is different from `largest` and can become a larger `second_largest`, update `second_largest`.
+6. Return `second_largest`.
+
+---
+
+### 8. Implementation
+
+`def find_second_largest(numbers):
+    largest = None
+    second_largest = None
+
+    for number in numbers:
+        if largest is None or number > largest:
+            second_largest = largest
+            largest = number
+        elif number != largest and (second_largest is None or number > second_largest):
+            second_largest = number
+
+    return second_largest`
+
+---
+
+### 9. Example
+
+Input:
+
+`[5, 10, 8, 15, 20]`
+
+Trace:
+
+`5`
+
+`largest = 5`
+
+`second_largest = None`
+
+Then `10`:
+
+`largest = 10`
+
+`second_largest = 5`
+
+Then `8`:
+
+`largest = 10`
+
+`second_largest = 8`
+
+Then `15`:
+
+`largest = 15`
+
+`second_largest = 10`
+
+Then `20`:
+
+`largest = 20`
+
+`second_largest = 15`
+
+Final result:
+
+`15`
+
+---
+
+### 10. Complexity Analysis
+
+#### Time Complexity
+
+The array is traversed once:
+
+`for number in numbers`
+
+For `n` elements, the loop can run `n` times.
+
+Therefore:
+
+**Time Complexity = O(n)**
+
+This is a single-pass solution.
+
+---
+
+### 11. Space Complexity
+
+The algorithm only uses a constant number of variables:
+
+- `largest`
+- `second_largest`
+- `number`
+
+It does not create another array or data structure.
+
+Therefore:
+
+**Extra Space Complexity = O(1)**
+
+---
+
+### 12. Why Not Sort the Array?
+
+A simple alternative would be to sort the array first and then find the second-largest value.
+
+However, sorting processes the entire array to arrange its elements.
+
+Our approach only needs to keep track of:
+
+`largest`
+
+and:
+
+`second_largest`
+
+while scanning the array.
+
+Therefore, our solution achieves:
+
+`O(n)` time
+
+and:
+
+`O(1)` extra space
+
+without sorting the array.
+
+---
+
+### 13. Edge Cases
+
+#### Empty Array
+
+`[]`
+
+There is no largest or second-largest value.
+
+Result:
+
+`None`
+
+#### One Element
+
+`[5]`
+
+There is no second-largest distinct value.
+
+Result:
+
+`None`
+
+#### All Values Equal
+
+`[20, 20, 20]`
+
+There is no second-largest distinct value.
+
+Result:
+
+`None`
+
+#### Duplicate Largest
+
+`[10, 20, 20, 5]`
+
+Result:
+
+`10`
+
+#### Negative Values
+
+`[-10, -5, -20, -3]`
+
+Largest:
+
+`-3`
+
+Second largest:
+
+`-5`
+
+Using `None` for initialization allows the algorithm to work correctly with negative values.
+
+---
+
+### 14. Important Python Concepts
+
+#### `is None`
+
+`largest is None`
+
+checks whether `largest` has not been assigned a value yet.
+
+#### `!=`
+
+`number != largest`
+
+means the current number is different from the largest value.
+
+This is necessary because we are looking for the second-largest **distinct** value.
+
+#### `and`
+
+`number > second_largest and number != largest`
+
+means both conditions must be true.
+
+---
+
+### 15. Key Takeaways
+
+- The goal is to find the second-largest **distinct** value.
+- Maintain two variables: `largest` and `second_largest`.
+- A single traversal is enough.
+- When a new largest is found, the old largest becomes second largest.
+- A number can become second largest only if it is different from the largest.
+- `None` is useful for representing "no value found yet."
+- Empty and single-element arrays have no second-largest value.
+- All-equal arrays have no second-largest distinct value.
+- Time Complexity = O(n).
+- Extra Space Complexity = O(1).
+- This approach avoids sorting the entire array.

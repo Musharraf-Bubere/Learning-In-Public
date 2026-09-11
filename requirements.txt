@@ -11,3 +11,4 @@ ydata-profiling
 setuptools
 ipykernel
 nltk
+streamlit

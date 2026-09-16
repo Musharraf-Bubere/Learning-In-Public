@@ -1,0 +1,6 @@
+{
+  "pdf_path": "D:\\Learning-In-Public\\Agentic-AI\\LangSmith\\Practical\\langsmith-masterclass\\Musharraf_Resume.pdf",
+  "chunk_size": 1000,
+  "chunk_overlap": 150,
+  "embedding_model": "gemini-embedding-2"
+}

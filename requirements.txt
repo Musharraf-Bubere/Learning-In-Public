@@ -116,3 +116,7 @@ unstructured[docs]
 openpyxl
 unstructured[xlsx]
 jq
+langchain-huggingface
+sentence-transformers
+ipywidgets
+langchain-google-genai 

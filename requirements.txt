@@ -120,3 +120,4 @@ langchain-huggingface
 sentence-transformers
 ipywidgets
 langchain-google-genai 
+chromadb

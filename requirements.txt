@@ -121,3 +121,5 @@ sentence-transformers
 ipywidgets
 langchain-google-genai 
 chromadb
+keras
+hyperopt
